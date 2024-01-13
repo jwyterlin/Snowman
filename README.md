@@ -15,7 +15,7 @@ and run the following command to generate the files:
 tuist generate
 ```
 
-2 - Instead of using high order function called `filter` to separate the candidate words and pick one of them up for the game, I'm using a linked list for this purpose.
+2 - Instead of using a higher-order function called `filter` to separate the candidate words and choose one of them for the game, I'm using a linked list for this purpose.
 
 You can check this in the function called `getRandomWord()` of the `Game` struct.
 
