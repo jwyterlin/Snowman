@@ -76,10 +76,7 @@ struct Game: Identifiable {
         self.id = id
         let startDate = Date()
         print("start date: \(startDate)")
-        for index in 0...10 {
-            print("index #\(index)")
-            word = getRandomWord()
-        }
+        word = getRandomWord()
         let endDate = Date()
         print("end date: \(endDate)")
         print("elapsed time: \(endDate - startDate)")
