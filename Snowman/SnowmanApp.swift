@@ -34,20 +34,24 @@ import SwiftUI
 
 @main
 struct SnowmanApp: App {
-  @StateObject var appState = AppState()
-
-  var body: some Scene {
-    WindowGroup {
-      ContentView(appState: appState)
+    @StateObject var appState = AppState()
+    
+    var body: some Scene {
+        WindowGroup {
+            ContentView(appState: appState)
+        }
+        .commands {
+            SidebarCommands()
+            ToolbarCommands()
+        }
+        
+        Settings {
+            SettingsView()
+        }
+        
+        Window("Statistics", id: "stats") {
+            StatsView(games: appState.games)
+        }
+        .keyboardShortcut("t", modifiers: .command)
     }
-
-    Settings {
-      SettingsView()
-    }
-
-    Window("Statistics", id: "stats") {
-      StatsView(games: appState.games)
-    }
-    .keyboardShortcut("t", modifiers: .command)
-  }
 }
