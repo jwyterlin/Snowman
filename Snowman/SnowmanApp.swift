@@ -43,6 +43,13 @@ struct SnowmanApp: App {
         .commands {
             SidebarCommands()
             ToolbarCommands()
+            
+            CommandGroup(replacing: .newItem) {
+                Button("New Game") {
+                    appState.startNewGame()
+                }
+                .keyboardShortcut("n")
+            }
         }
         
         Settings {
