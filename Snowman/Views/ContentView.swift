@@ -38,7 +38,9 @@ struct ContentView: View {
     var body: some View {
         Group {
             if appState.bossMode {
-                Color.white
+                Image("work")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
                     .navigationTitle("Work")
             } else {
                 NavigationSplitView {
