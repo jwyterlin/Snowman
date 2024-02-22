@@ -50,6 +50,11 @@ struct SnowmanApp: App {
                 }
                 .keyboardShortcut("n")
             }
+            
+            // Hides help menu item
+            CommandGroup(replacing: .help) {
+                EmptyView()
+            }
         }
         
         Settings {
