@@ -74,12 +74,7 @@ struct Game: Identifiable {
     
     init(id: Int) {
         self.id = id
-        let startDate = Date()
-        print("start date: \(startDate)")
         word = getRandomWord()
-        let endDate = Date()
-        print("end date: \(endDate)")
-        print("elapsed time: \(endDate - startDate)")
     }
     
     mutating func processGuess(letter: String) {
@@ -116,14 +111,26 @@ struct Game: Identifiable {
     }
     
     func getRandomWord() -> String {
-        return RandomWordFactory(
+        let startDate = Date()
+        print("start date: \(startDate)")
+        let randomWord = RandomWordFactory(
             minWordLength: minWordLength,
             maxWordLength: maxWordLength,
             useProperNouns: useProperNouns
         )
-        .create(strategyOption: .linkedList)
-        .getRandomWord()
+            .create(strategyOption: .linkedList)
+            .getRandomWord()
+        let endDate = Date()
+        print("end date: \(endDate)")
+        print("elapsed time: \(endDate - startDate)")
+        
+        return randomWord
     }
+    
+    mutating func chooseNewWord() {
+      word = getRandomWord()
+    }
+
 }
 
 extension Game {

@@ -55,6 +55,17 @@ struct SnowmanApp: App {
             CommandGroup(replacing: .help) {
                 EmptyView()
             }
+            
+            CommandMenu("Game") {
+                Toggle("Boss Mode", isOn: $appState.bossMode)
+                    .keyboardShortcut("b")
+                
+                Button("Different Word") {
+                    appState.getDifferentWord()
+                }
+                .keyboardShortcut("d")
+                .disabled(appState.gameHasStarted)
+            }
         }
         
         Settings {
