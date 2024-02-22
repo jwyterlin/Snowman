@@ -49,6 +49,7 @@ struct ContentView: View {
             }
         }
         .frame(minWidth: 1100, minHeight: 500)
+        .animation(.easeInOut, value: appState.bossMode)
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 Button {
