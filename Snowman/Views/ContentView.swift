@@ -50,8 +50,8 @@ struct ContentView: View {
         }
         .frame(minWidth: 1100, minHeight: 500)
         .animation(.easeInOut, value: appState.bossMode)
-        .toolbar {
-            ToolbarItem(placement: .automatic) {
+        .toolbar(id: "content_view_tooolbar") {
+            ToolbarItem(id: "boss_mode_toolbar_item", placement: .automatic) {
                 Button {
                     appState.bossMode.toggle()
                 } label: {
