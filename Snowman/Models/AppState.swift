@@ -40,6 +40,7 @@ class AppState: ObservableObject {
             selectGame(id: selectedID)
         }
     }
+    @Published var bossMode = false
     
     init() {
         let newGame = Game(id: 1)
